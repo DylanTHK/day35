@@ -1,0 +1,23 @@
+
+<div *ngIf="true">
+    <table *ngFor="let a of articles">
+
+        <!-- <tr *ngFor="let a of articles"> -->
+        <tr>
+            <h2>{{ a.title }}</h2>
+        </tr>
+        <tr>
+            <td>Author: {{ a.author }}</td>
+        </tr>
+        <tr>
+            <td>Description: {{ a.description }}</td>
+        </tr>
+        <tr>
+            <td>
+                <a href="{{ a.url }}" target="_blank">link</a>
+            </td>
+        </tr>
+        <br>
+    </table>
+</div>
+
