@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,7 @@ import jakarta.json.JsonArrayBuilder;
 import jakarta.json.JsonObject;
 
 @RestController
+@CrossOrigin(origins="*")
 @RequestMapping(path="/api")
 public class NewsController {
     
@@ -40,7 +42,7 @@ public class NewsController {
 
         System.out.println(category + " " + pageSize);
         List<Article> newsArticles = newsSvc.getNews(country, category, pageSize);
-        // System.out.println("Articles Received");
+        System.out.println("Articles Received: " + newsArticles);
 
         // initialise builder
         JsonArrayBuilder arrBuilder = Json.createArrayBuilder();
@@ -53,6 +55,7 @@ public class NewsController {
 
         return ResponseEntity
                 .status(HttpStatus.OK)
+                // .header("Access-Control-Allow-Origin", "*")
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(arrBuilder.build().toString());
 

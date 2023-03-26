@@ -42,10 +42,11 @@ public class Article {
     // TODO: update getValue() to get description as well
     public static Article toArticle(JsonObject obj) {
         Article a = new Article();
-        a.setAuthor(obj.getString("author"));
-        a.setTitle(obj.getString("title"));
+        a.setAuthor(getValue("author", obj));
+        a.setTitle(getValue("title", obj));
         a.setDescription(getValue("description", obj));
-        a.setUrl(obj.getString("url"));
+        a.setUrl(getValue("url", obj));
+        // System.out.println("Article: " + a);
         return a;
     }
 
@@ -62,6 +63,7 @@ public class Article {
             .add("author", author)
             .add("title", title)
             .add("description", description)
+            .add("url", url)
             .build();
     }
 }

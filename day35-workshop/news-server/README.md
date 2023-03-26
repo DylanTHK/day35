@@ -118,3 +118,4 @@ jsonArray.stream()
 2. railway init (create new proj) / railway login (link to existing)
 3. railway up
 4. update railway environment variables
+- NEWS_KEY=561d5b45eaac44498db578f1e3dc4c18

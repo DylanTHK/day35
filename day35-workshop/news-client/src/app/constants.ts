@@ -6,10 +6,10 @@ export const COUNTRY_URL = "https://restcountries.com/v3.1/alpha";
 // export const NEWS_KEY = "561d5b45eaac44498db578f1e3dc4c18";
 
 // URL for local query (SpringBoot)
-// export const NEWS_URL = "https://localhost8081/news";
+export const NEWS_URL = "http://localhost:8082/api";
 
 // URL for railway
-export const NEWS_URL = "https://news-production-b8f9.up.railway.app";
+// export const NEWS_URL = "https://news-production-b8f9.up.railway.app";
 
 export const CATEGORIES = ["business", "entertainment", "general", "health", "science", "sports", "technology"];
 export const COUNTRY_CODES = "ae,ar,at,au,be,bg,br,ca,ch,cn,co,cu,cz,de,eg,fr,gb,gr,hk,hu,id,ie,il,in,it,jp,kr,lt,lv,ma,mx,my,ng,nl,no,nz,ph,pl,pt,ro,rs,ru,sa,se,sg,si,sk,th,tr,tw,ua,us,ve,za";

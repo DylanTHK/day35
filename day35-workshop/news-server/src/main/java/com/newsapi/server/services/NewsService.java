@@ -30,6 +30,8 @@ public class NewsService {
 
     public List<Article> getNews(String country, String category, Integer pageSize) {
         
+        System.out.println("News Service, newsKey: " + newsKey);
+
         System.out.println("News URL: " + NEWS_URL);
         String url = UriComponentsBuilder
             .fromUriString(NEWS_URL)
@@ -77,9 +79,7 @@ public class NewsService {
         // 
         return jsonArray.stream()
             // convert each item to json object
-            .map(a -> {
-                return a.asJsonObject();
-            })
+            .map(a -> a.asJsonObject())
             // maps toArticle to each instance (output should match class)
             .map(Article::toArticle) 
             .toList();

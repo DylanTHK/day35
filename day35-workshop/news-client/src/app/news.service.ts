@@ -16,26 +16,24 @@ export class NewsService {
 
     // HTTP Request from newsapi.org
     getNewsAsObservable(country: string, category: string): Observable<Article[]> {
-        const params = new HttpParams()
-            .set('country', country)
-            .set('category', category)
-            .set('pageSize', 10)
+        // const params = new HttpParams()
+        //     .set('country', country)
+        //     .set('category', category)
+        //     .set('pageSize', 10)
             // for angular query
             // .set('apiKey', NEWS_KEY);
 
-        return this.http.get<Article[]>(NEWS_URL, { params }).pipe();
+        return this.http.get<Article[]>(`${NEWS_URL}/${country}/${category}/10`).pipe();
     }
 
     getNews(country: string, category: string): Promise<Article[]> {
         return firstValueFrom(
-            this.getNewsAsObservable(country, category)
-        )
+            this.getNewsAsObservable(country, category))
         // function to listen to resolve
-        .then((data: any) => {
-            // console.info(">>> extracted data:", data);
+        .then((result) => {
+            console.info(">>> extracted result:", result);
             // convert json to articles
-            const articles = data.articles as Article[];
-            // console.info(">>> extracted articles:", articles);
+            const articles = result as Article[];
             return articles;
         })
         .then((data: any) => {
