@@ -21,7 +21,7 @@ export class NewsDisplayComponent implements OnInit, OnDestroy {
   
   // To subscribe to changes in newsSvc
   ngOnInit(): void {
-      console.info(">>> subscribing to news")
+      // console.info(">>> subscribing to news")
       this.newsSub = this.newsSvc.onNews.subscribe(
         // update articles with new data
         data => this.articles = data

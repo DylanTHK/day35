@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { firstValueFrom, Observable, Subject } from "rxjs";
-import { COUNTRY_CODES, COUNTRY_URL, NEWS_KEY, NEWS_URL } from "./constants";
+import { COUNTRY_CODES, COUNTRY_URL, NEWS_URL } from "./constants";
 import { Article, Country } from "./model";
 
 
@@ -32,10 +32,10 @@ export class NewsService {
         )
         // function to listen to resolve
         .then((data: any) => {
-            console.info(">>> extracted data:", data);
+            // console.info(">>> extracted data:", data);
             // convert json to articles
             const articles = data.articles as Article[];
-            console.info(">>> extracted articles:", articles);
+            // console.info(">>> extracted articles:", articles);
             return articles;
         })
         .then((data: any) => {
@@ -56,7 +56,7 @@ export class NewsService {
         // firstValueFrom Request, returns Promise<>
         const promise = firstValueFrom(response)
             .then(data => { // data is an array of countries (raw)
-            console.info("data: ", data)
+            // console.info("data: ", data)
             // transforms each element in array extract and overwrite existing element value
             // adds new array of Country Objects to local countries array
             this.countries = data.map((country: any) => (
@@ -66,7 +66,7 @@ export class NewsService {
                     flag: country.flags.png
                 } as Country
             ))
-            console.info("Countries (after map:", this.countries)
+            // console.info("Countries (after map:", this.countries)
             return this.countries;
         }) // then
 

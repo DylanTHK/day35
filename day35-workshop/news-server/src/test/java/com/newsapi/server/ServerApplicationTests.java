@@ -1,10 +1,10 @@
-package com.day35Workshop.newsApi;
+package com.newsapi.server;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class NewsApiApplicationTests {
+class ServerApplicationTests {
 
 	@Test
 	void contextLoads() {
